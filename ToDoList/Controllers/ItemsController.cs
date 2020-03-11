@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Models;
 using System.Collections.Generic;
+using System;
 
 namespace ToDoList.Controllers
 {
@@ -31,6 +32,13 @@ namespace ToDoList.Controllers
     {
       Item.ClearAll();
       return View();
+    }
+
+    [HttpGet("/items/{id}")]
+    public ActionResult Show(int id)
+    {
+      Item foundItem = Item.Find(id);
+      return View(foundItem);
     }
 
   }
