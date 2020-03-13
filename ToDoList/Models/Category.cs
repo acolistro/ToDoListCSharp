@@ -9,6 +9,7 @@ namespace ToDoList.Models
     public int Id { get; }
     public List<Item> Items { get; set; }
 
+
     public Category(string categoryName)
     {
       Name = categoryName;
@@ -20,6 +21,11 @@ namespace ToDoList.Models
     public static List<Category> GetAll()
     {
       return _instances;
+    }
+
+    public void AddItem(Item item)
+    {
+      Items.Add(item);
     }
 
     public static void ClearAll()
